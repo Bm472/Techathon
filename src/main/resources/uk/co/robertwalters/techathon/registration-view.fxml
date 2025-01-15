@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.geometry.Insets?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="uk.co.robertwalters.techathon.RegistrationController">
+<?import net.synedra.validatorfx.TooltipWrapper?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.robertwalters.techathon.RegistrationController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <TextField fx:id="firstName" text="First Name" />
-    <TextField fx:id="lastName" text="Last Name" />
-    <DatePicker fx:id="dob" />
-    <TextField fx:id="username" text="Username" />
-    <PasswordField fx:id="password" />
-    <PasswordField fx:id="confirmPassword" />
+   <Label text="Register">
+      <font>
+         <Font size="36.0" />
+      </font>
+   </Label>
+    <VBox alignment="CENTER">
+        <Label text="User must be at least 14 years old"></Label>
+        <Label text="Password must be 6 characters or longer"></Label>
+    </VBox>
+    <HBox spacing="15.0">
+        <VBox spacing="19.0">
+            <Label text="First Name" ></Label>
+            <Label text="Last Name" ></Label>
+            <Label text="Date of Birth" ></Label>
+            <Label text="Username" ></Label>
+            <Label text="Password" ></Label>
+            <Label text="Confirm Password" ></Label>
+        </VBox>
+        <VBox spacing="10.0">
+            <TextField fx:id="firstName"/>
+            <TextField fx:id="lastName" />
+            <DatePicker fx:id="dob" />
+            <TextField fx:id="username"/>
+            <PasswordField fx:id="password" />
+            <PasswordField fx:id="confirmPassword" />
+        </VBox>
+    </HBox>
     <Button onAction="#onSubmitButtonClick" text="Submit" />
     <Button onAction="#onBackButtonClick" text="Cancel" />
     <Label fx:id="errorMessage" style="color:red" visible="false" />

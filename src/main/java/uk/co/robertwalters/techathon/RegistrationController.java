@@ -1,5 +1,6 @@
 package uk.co.robertwalters.techathon;
 
+import data.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -35,9 +36,10 @@ public class RegistrationController {
     protected void onSubmitButtonClick() {
         boolean test = true;
 
-        /*if(Database.verifyLogin(username.getText(),password.getText())) {
+       /* if(Database.addCustomer()) {
 
-        }*/
+        }
+        */
         if(test) {
             HelloApplication.setLoginScene();
         }

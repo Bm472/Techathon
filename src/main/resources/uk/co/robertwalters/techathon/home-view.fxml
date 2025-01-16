@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
+<?import eu.hansolo.tilesfx.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.text.*?>
 
-<?import eu.hansolo.tilesfx.Tile?>
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.robertwalters.techathon.HomeController">
-    <HBox style="-fx-background-color: #9bb3c6;">
+    <HBox style="-fx-background-color: #fb8840;">
         <!-- padding for the inner elements on the overall navbar itself to the right-->
         <padding>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -30,10 +29,10 @@
         </HBox>
 
         <!-- Right side of the bar (drop down and options) -->
-        <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-background-color: #b39bc6;" HBox.hgrow="ALWAYS">
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
             <HBox alignment="CENTER" prefHeight="44.0" spacing="10.0">
                 <children>
-                    <Label fx:id="navLogout" onMouseClicked="#onLogoutClick" alignment="CENTER" text="Logout"/>
+                    <Label fx:id="navLogout" alignment="CENTER" onMouseClicked="#onLogoutClick" text="Logout" textFill="WHITE" />
                     <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" />
                 </children>
             </HBox>
@@ -45,9 +44,9 @@
         </font>
     </Label>
     <HBox alignment="CENTER" spacing="10.0">
-        <Tile fx:id="Mortgages" skinType="PERCENTAGE" onMouseClicked="#onMortgagesTileClicked"></Tile>
-        <Tile fx:id="Pensions" skinType="PERCENTAGE" onMouseClicked="#onPensionsTileClicked"></Tile>
-        <Tile fx:id="Savings" skinType="PERCENTAGE" onMouseClicked="#onSavingsTileClicked"></Tile>
-        <Tile fx:id="Investments" skinType="PERCENTAGE" onMouseClicked="#onInvestmentsTileClicked" ></Tile>
+        <Tile fx:id="Mortgages" onMouseClicked="#onMortgagesTileClicked" skinType="PERCENTAGE" />
+        <Tile fx:id="Pensions" onMouseClicked="#onPensionsTileClicked" skinType="PERCENTAGE" />
+        <Tile fx:id="Savings" onMouseClicked="#onSavingsTileClicked" skinType="PERCENTAGE" />
+        <Tile fx:id="Investments" onMouseClicked="#onInvestmentsTileClicked" skinType="PERCENTAGE" />
     </HBox>
 </VBox>

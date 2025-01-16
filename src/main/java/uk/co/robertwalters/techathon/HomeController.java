@@ -12,10 +12,13 @@ import java.sql.SQLException;
 import data.Database;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 /*import javafx.scene.layout.*/
 
 public class HomeController {
 
+    @FXML
+    public ImageView logoImage;
     @FXML
     private Label menuName;
 

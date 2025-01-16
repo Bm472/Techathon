@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.TextFlow;
 
@@ -33,6 +34,8 @@ public class ContentSceneController extends HelloApplication{
 
     @FXML
     public Label navHome;
+    @FXML
+    public ImageView logoImage;
 
     private  CourseContent courseContent;
 

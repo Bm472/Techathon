@@ -32,7 +32,7 @@
            <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-background-color: #b39bc6;" HBox.hgrow="ALWAYS">
                <HBox alignment="CENTER" prefHeight="44.0" spacing="10.0">
                    <children>
-                       <Label alignment="CENTER" text="Label" />
+                       <Label fx:id="navHome" onMouseClicked="#onHomeClick" text="Home" />
                        <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" />
                    </children>
                </HBox>

@@ -31,6 +31,9 @@ public class ContentSceneController extends HelloApplication{
     @FXML
     public Label navName;
 
+    @FXML
+    public Label navHome;
+
     private  CourseContent courseContent;
 
 
@@ -43,6 +46,11 @@ public class ContentSceneController extends HelloApplication{
     @FXML
     public void onPreviousButtonClick() {
         updatePage(false);  // true is a sign to go forward
+    }
+
+    @FXML
+    public void onHomeClick() {
+        HelloApplication.setHomeScene();
     }
 
     @FXML

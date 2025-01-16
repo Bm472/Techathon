@@ -42,13 +42,7 @@ public class LoginController {
             HelloApplication.customerID = resultSet.getInt("customerID");
             HelloApplication.firstName = resultSet.getString("firstName");
             HelloApplication.lastName = resultSet.getString("lastName");
-            if(Database.initialiseProgress(HelloApplication.customerID)) {
-                HelloApplication.setHomeScene();
-            }
-            else {
-                errorMessage.setText("Error initialising customer progress");
-                errorMessage.setVisible(true);
-            }
+            HelloApplication.setHomeScene();
         }
         else {
             errorMessage.setText("Invalid Username or Password");

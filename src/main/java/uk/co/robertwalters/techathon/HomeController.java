@@ -114,4 +114,13 @@ public class HomeController {
         CourseContent.cont1 = resultSet.getString("content");
         HelloApplication.setContentScene();
     }
+
+    @FXML
+    protected void onLogoutClick() throws SQLException {
+        HelloApplication.customerID = -1;
+        HelloApplication.currentCourseID = -1;
+        HelloApplication.firstName = null;
+        HelloApplication.lastName = null;
+        HelloApplication.setLoginScene();
+    }
 }

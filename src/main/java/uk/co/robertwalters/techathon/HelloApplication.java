@@ -61,6 +61,34 @@ public class HelloApplication extends Application {
         }
     }
 
+    // sets up the content that will be shown within the controller
+    private void SetupContentController() {
+
+        FXMLLoader contentLoader = new FXMLLoader(HelloApplication.class.getResource("content-view.fxml"));
+
+        // creating a new controller to manipulate values
+        contentSceneController = new ContentSceneController();
+        contentSceneController = contentLoader.getController();
+
+        // the name placed here is important as it will be used to get the information from the database.
+        courseContent = new CourseContent("Investment");
+
+        // gets the current coursePage for that specific course class that was retrieved
+        TextArea paragraph = new TextArea(courseContent.getCoursePages().get(courseContent.getCurrentPage()));
+        paragraph.setStyle("-fx-font-size: 24");
+
+        // sets the text to the paragraph and makes sure it can be resized depending on the screen sizing.
+        contentSceneController.contentArea.setText(paragraph.getText());
+        contentSceneController.contentArea.setWrapText(true);
+        // the percentage is set and displayed to the screen
+        contentSceneController.percentLabel.setText(courseContent.getUserPercentage() + "%");
+
+        // percentage is taken from the class and divided by 100 as the values within the progress bar works from 0 to 1.
+        contentSceneController.progressBar.setProgress(courseContent.getUserPercentage() /100.00);
+        
+    }
+
+
 
     // Updates the text area within the space
     public static void updatePage(boolean isForward) {

@@ -224,7 +224,7 @@ public class Database {
 
 
             //Execute query
-            statement.execute();
+            ResultSet resultSet = statement.executeQuery();
 
             //If successful, return true
             return true;

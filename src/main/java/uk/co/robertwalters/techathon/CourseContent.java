@@ -103,7 +103,7 @@ public class CourseContent {
         NOTE: For now, the value is being cast to an integer only; just to make things easier within the database.
          */
         percentage = (int) (((float)currentPage + 1.0f) / (float)maxPages * 100);
-        percentage = (int) Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
+        //percentage = (int) Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
 
         if(userPercentage <= percentage) userPercentage = percentage;    // updates the user percentage that will be the one that is displayed to the screen
 

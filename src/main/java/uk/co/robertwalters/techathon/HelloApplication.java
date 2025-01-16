@@ -64,10 +64,10 @@ public class HelloApplication extends Application {
         contentSceneController.contentArea.setText(paragraph.getText());
         contentSceneController.contentArea.setWrapText(true);
         // the percentage is set and displayed to the screen
-        contentSceneController.percentLabel.setText(courseContent.getPercentage() + "%");
+        contentSceneController.percentLabel.setText(courseContent.getUserPercentage() + "%");
 
         // percentage is taken from the class and divided by 100 as the values within the progress bar works from 0 to 1.
-        contentSceneController.progressBar.setProgress(courseContent.getPercentage()/100.00);
+        contentSceneController.progressBar.setProgress(courseContent.getUserPercentage()/100.00);
 
     }
 

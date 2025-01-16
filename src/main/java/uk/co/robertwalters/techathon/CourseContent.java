@@ -13,6 +13,7 @@ public class CourseContent {
     private static short maxPages;
     private static short currentPage;
     private static float percentage;
+    private static float userPercentage;
 
 
     /* example "paragraphs".
@@ -57,8 +58,8 @@ public class CourseContent {
         return currentPage;
     }
 
-    public float getPercentage() {
-        return percentage;
+    public float getUserPercentage() {
+        return userPercentage;
     }
     // testing purposes
     public void generateContentForClass(String courseDetailName) {
@@ -99,7 +100,11 @@ public class CourseContent {
 
         percentage = ((float)currentPage + 1.0f) / (float)maxPages * 100;
         percentage = Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
+
+        if(userPercentage <= percentage) userPercentage = percentage;    // updates the user percentage that will be the one that is displayed to the screen
+
         System.out.println("percent: " +percentage);
+        System.out.println("user percent: " +userPercentage);
         return percentage;
     }
 

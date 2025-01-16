@@ -28,6 +28,9 @@ public class ContentSceneController extends HelloApplication{
     @FXML
     public Label percentLabel;
 
+    @FXML
+    public Label navName;
+
     private  CourseContent courseContent;
 
 
@@ -44,6 +47,9 @@ public class ContentSceneController extends HelloApplication{
 
     @FXML
     protected void initialize() {
+
+        //Update name label in menu bar
+        navName.setText(HelloApplication.firstName + " " + HelloApplication.lastName);
 
         // the name placed here is important as it will be used to get the information from the database.
         courseContent = new CourseContent("Investment");

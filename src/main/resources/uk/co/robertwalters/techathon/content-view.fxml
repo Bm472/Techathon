@@ -45,7 +45,13 @@
               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
           </padding>
          <children>
-            <ProgressBar prefHeight="30.0" prefWidth="680.0" progress="0.0" />
+             <HBox>
+                 <ProgressBar prefHeight="30.0" prefWidth="680.0" progress="0.0" />
+                 <Label fx:id="percentLabel" textFill="#4e9fe1">
+                     <font>
+                         <Font name="System Bold" size="16.0" />
+                     </font></Label>
+             </HBox>
              <Label text="Title" textFill="#4e9fe1">
                <font>
                   <Font name="System Bold" size="40.0" />

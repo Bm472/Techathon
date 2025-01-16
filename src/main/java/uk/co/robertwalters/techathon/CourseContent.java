@@ -1,5 +1,6 @@
 package uk.co.robertwalters.techathon;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class CourseContent {
     private static ArrayList<String> coursePages = new ArrayList<>();
     private static short maxPages;
     private static short currentPage;
+    private static float percentage;
 
 
     /* example "paragraphs".
@@ -55,6 +57,9 @@ public class CourseContent {
         return currentPage;
     }
 
+    public float getPercentage() {
+        return percentage;
+    }
     // testing purposes
     public void generateContentForClass(String courseDetailName) {
 
@@ -68,7 +73,7 @@ public class CourseContent {
         coursePages.addAll(List.of(cont1.split("/~")));  // regex used within the expression
         this.maxPages = (short)coursePages.size();  // max size of the array list, which indicates the page numbers
         this.currentPage = (short)0;
-
+        this.percentage = CalculatePercentage();
     }
 
 
@@ -80,6 +85,22 @@ public class CourseContent {
             if(currentPage != 0) currentPage--;
         }
 
+    }
+
+    // this variable will calculate the percentage
+    private float CalculatePercentage() {
+
+        // creating a formatter to convert ot two decimal places
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        System.out.println("current percent: "+percentage);
+
+        System.out.println(currentPage + 1);
+        System.out.println(maxPages);
+
+        percentage = ((float)currentPage + 1.0f) / (float)maxPages * 100;
+        percentage = Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
+        System.out.println("percent: " +percentage);
+        return percentage;
     }
 
 

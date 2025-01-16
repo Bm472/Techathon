@@ -1,5 +1,7 @@
 package uk.co.robertwalters.techathon;
 
+import data.Database;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +107,10 @@ public class CourseContent {
         percentage = (int) (((float)currentPage + 1.0f) / (float)maxPages * 100);
         //percentage = (int) Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
 
-        if(userPercentage <= percentage) userPercentage = percentage;    // updates the user percentage that will be the one that is displayed to the screen
+        if(userPercentage <= percentage) {
+            userPercentage = percentage;    // updates the user percentage that will be the one that is displayed to the screen
+            Database.updateProgress(HelloApplication.customerID,HelloApplication.currentCourseID,userPercentage);
+        }
 
         System.out.println("percent: " +percentage);
         System.out.println("user percent: " +userPercentage);

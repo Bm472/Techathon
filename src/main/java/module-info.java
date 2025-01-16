@@ -8,6 +8,7 @@ module uk.co.robertwalters.techathon {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires eu.hansolo.tilesfx;
+    requires java.desktop;
 
     opens uk.co.robertwalters.techathon to javafx.fxml;
     exports uk.co.robertwalters.techathon;

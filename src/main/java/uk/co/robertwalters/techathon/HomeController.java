@@ -3,6 +3,8 @@ package uk.co.robertwalters.techathon;
 import eu.hansolo.tilesfx.Tile;
 import javafx.fxml.FXML;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -30,6 +32,10 @@ public class HomeController {
 
 
 
+    @FXML
+    protected void onTestClick() throws IOException {
+        HelloApplication.setupContentController();
+    }
 
     @FXML
     protected void initialize() {
@@ -41,19 +47,19 @@ public class HomeController {
                     String name = resultSet.getString("name");
                     switch (name) {
                         case "Mortgages":
-                            Mortgages.setTitle(name);
+                            Mortgages.setTitle(resultSet.getString("name"));
                             Mortgages.setDescription(resultSet.getString("description"));
                             break;
                         case "Pensions":
-                            Pensions.setTitle(name);
+                            Pensions.setTitle(resultSet.getString("name"));
                             Pensions.setDescription(resultSet.getString("description"));
                             break;
                         case "Savings":
-                            Savings.setTitle(name);
+                            Savings.setTitle(resultSet.getString("name"));
                             Savings.setDescription(resultSet.getString("description"));
                             break;
                         case "Investments":
-                            Investments.setTitle(name);
+                            Investments.setTitle(resultSet.getString("name"));
                             Investments.setDescription(resultSet.getString("description"));
                             break;
                     }

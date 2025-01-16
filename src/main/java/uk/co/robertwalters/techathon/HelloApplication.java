@@ -62,7 +62,7 @@ public class HelloApplication extends Application {
     }
 
     // sets up the content that will be shown within the controller
-    private void SetupContentController() {
+    public static void setupContentController() {
 
         FXMLLoader contentLoader = new FXMLLoader(HelloApplication.class.getResource("content-view.fxml"));
 

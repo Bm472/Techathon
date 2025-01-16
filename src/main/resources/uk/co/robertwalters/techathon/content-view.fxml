@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.javafxtest.ContentSceneController">
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.robertwalters.techathon.ContentSceneController">
    <children>
        <HBox prefHeight="44.0" style="-fx-background-color: #9bb3c6;">
             <!-- padding for the inner elements on the overall navbar itself to the right-->

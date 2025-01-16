@@ -32,11 +32,11 @@ public class Database {
     /*
         Verify if a username and password combination exists in the database
      */
-    public static boolean verifyLogin(String username, String password)  {
+    public static ResultSet verifyLogin(String username, String password)  {
         try {
             initialise();
             //Create statement
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Login WHERE username = ? AND password = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Login JOIN Customer ON Login.customerID = Customer.customerID WHERE username = ? AND password = ?");
 
             //Add variables
             statement.setString(1, username);
@@ -46,7 +46,57 @@ public class Database {
             ResultSet resultSet = statement.executeQuery();
 
             //If a result exists, return true for verification, false if not
-            return resultSet.next();
+            return resultSet;
+        }
+        catch (SQLException e) {
+            return null;
+        }
+    }
+
+    /*
+        Set a customers progress to 0 on all courses upon registration
+     */
+    public static boolean initialiseProgress(int customerID)  {
+        try {
+            initialise();
+            //Create statement
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO Progress (customerID,courseID,value) VALUES (?, 1,0)");
+
+            //Add variables
+            statement.setInt(1, customerID);
+
+            //Execute query
+            statement.execute();
+
+            //Create statement
+            statement = connection.prepareStatement("INSERT INTO Progress (customerID,courseID,value) VALUES (?, 2,0)");
+
+            //Add variables
+            statement.setInt(1, customerID);
+
+            //Execute query
+            statement.execute();
+
+            //Create statement
+            statement = connection.prepareStatement("INSERT INTO Progress (customerID,courseID,value) VALUES (?, 3,0)");
+
+            //Add variables
+            statement.setInt(1, customerID);
+
+            //Execute query
+            statement.execute();
+
+            //Create statement
+            statement = connection.prepareStatement("INSERT INTO Progress (customerID,courseID,value) VALUES (?, 4,0)");
+
+            //Add variables
+            statement.setInt(1, customerID);
+
+            //Execute query
+            statement.execute();
+
+            //If a result exists, return true for verification, false if not
+            return true;
         }
         catch (SQLException e) {
             return false;
@@ -95,10 +145,12 @@ public class Database {
             resultSet.next();
 
             statement = connection.prepareStatement("INSERT INTO Login (customerID, username, password) VALUES (?,?,?);");
-            statement.setString(1,resultSet.getString("ID"));
+            statement.setInt(1,resultSet.getInt("ID"));
             statement.setString(2, username);
             statement.setString(3, hashPassword(password));
             statement.executeUpdate();
+
+            initialiseProgress(resultSet.getInt("ID"));
 
             return resultSet;
         }
@@ -116,6 +168,29 @@ public class Database {
             initialise();
             //Create statement
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM Course");
+
+            //Execute query
+            ResultSet resultSet = statement.executeQuery();
+
+            //If successful, return true
+            return resultSet;
+        }
+        catch (SQLException e) {
+            return null;
+        }
+    }
+
+    /*
+      Retrieve Progress Details
+   */
+    public static ResultSet viewCourses(int customerID)  {
+        try {
+            initialise();
+            //Create statement
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Progress WHERE customerID = ?");
+
+            //Add variables
+            statement.setInt(1, customerID);
 
             //Execute query
             ResultSet resultSet = statement.executeQuery();

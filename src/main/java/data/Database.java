@@ -1,5 +1,7 @@
 package data;
 
+import uk.co.robertwalters.techathon.HelloApplication;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.sql.*;
@@ -163,11 +165,14 @@ public class Database {
     /*
       Retrieve Course Details
    */
-    public static ResultSet viewCourses()  {
+    public static ResultSet viewCourse(int courseID)  {
         try {
             initialise();
             //Create statement
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Course");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Course WHERE courseID = ?");
+
+            //Add variables
+            statement.setInt(1, courseID);
 
             //Execute query
             ResultSet resultSet = statement.executeQuery();
@@ -177,6 +182,55 @@ public class Database {
         }
         catch (SQLException e) {
             return null;
+        }
+    }
+
+    /*
+      Retrieve Progress Details
+   */
+    public static ResultSet viewProgress(int customerID)  {
+        try {
+            initialise();
+            //Create statement
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Progress p JOIN Customer c ON p.CustomerID = c.customerID JOIN Course co ON p.courseID = co.courseID WHERE p.customerID = ?");
+
+            //Add variables
+            statement.setInt(1, customerID);
+
+            //Execute query
+            ResultSet resultSet = statement.executeQuery();
+
+            //If successful, return true
+            return resultSet;
+        }
+        catch (SQLException e) {
+            return null;
+        }
+    }
+
+    /*
+     Retrieve Progress Details
+  */
+    public static boolean updateProgress(int customerID, int courseID,int newValue)  {
+        try {
+            initialise();
+            //Create statement
+            PreparedStatement statement = connection.prepareStatement("UPDATE Progress SET value = ? WHERE customerID = ? AND courseID = ?");
+
+            //Add variables
+            statement.setInt(1, newValue);
+            statement.setInt(2, customerID);
+            statement.setInt(3, courseID);
+
+
+            //Execute query
+            statement.execute();
+
+            //If successful, return true
+            return true;
+        }
+        catch (SQLException e) {
+            return false;
         }
     }
 

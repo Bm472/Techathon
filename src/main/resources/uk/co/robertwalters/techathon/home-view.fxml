@@ -48,10 +48,10 @@
         </font>
     </Label>
     <HBox alignment="CENTER" spacing="10.0">
-        <Tile fx:id="Mortgages" skinType="PERCENTAGE"></Tile>
-        <Tile fx:id="Pensions" skinType="PERCENTAGE"></Tile>
-        <Tile fx:id="Savings" skinType="PERCENTAGE"></Tile>
-        <Tile fx:id="Investments" skinType="PERCENTAGE"></Tile>
+        <Tile fx:id="Mortgages" skinType="PERCENTAGE" onMouseClicked="#onMortgagesTileClicked"></Tile>
+        <Tile fx:id="Pensions" skinType="PERCENTAGE" onMouseClicked="#onPensionsTileClicked"></Tile>
+        <Tile fx:id="Savings" skinType="PERCENTAGE" onMouseClicked="#onSavingsTileClicked"></Tile>
+        <Tile fx:id="Investments" skinType="PERCENTAGE" onMouseClicked="#onInvestmentsTileClicked"></Tile>
     </HBox>
     <Button fx:id="test" onAction="#onTestClick">
     </Button>

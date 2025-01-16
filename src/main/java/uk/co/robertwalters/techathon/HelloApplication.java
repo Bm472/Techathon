@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
     public static int customerID;
     public static String firstName;
     public static String lastName;
+    public static int currentCourseID;
     private static final int WINDOW_WIDTH = 960;
     private static final int WINDOW_HEIGHT = 540;
 
@@ -60,6 +61,19 @@ public class HelloApplication extends Application {
             e.printStackTrace();
         }
     }
+
+    public static void setContentScene()  {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("content-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
+            stage.setScene(scene);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     // sets up the content that will be shown within the controller
     public static void setupContentController() {

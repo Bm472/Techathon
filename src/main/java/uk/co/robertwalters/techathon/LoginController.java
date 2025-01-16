@@ -1,5 +1,6 @@
 package uk.co.robertwalters.techathon;
 
+import data.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -25,20 +26,16 @@ public class LoginController {
     private PasswordField password;
 
     @FXML
-    private PasswordField confirmPassword;
-
-    @FXML
     private Label errorMessage;
 
     @FXML
     protected void onLoginButtonClick() {
-        boolean test = true;
-
-        /*if(Database.verifyLogin(username.getText(),password.getText())) {
-
-        }*/
-        if(test) {
-            errorMessage.setText("Valid Username or Password");
+        if(username.getText().isEmpty() || password.getText().isEmpty()) {
+            errorMessage.setText("Username and password are required");
+            errorMessage.setVisible(true);
+        }
+        else if(Database.verifyLogin(username.getText(), password.getText())) {
+            errorMessage.setText("Logged In");
             errorMessage.setVisible(true);
         }
         else {

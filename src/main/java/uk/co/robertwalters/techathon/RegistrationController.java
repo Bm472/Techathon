@@ -7,6 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class RegistrationController {
 
     @FXML
@@ -33,20 +37,38 @@ public class RegistrationController {
     private Label errorMessage;
 
     @FXML
-    protected void onSubmitButtonClick() {
+    protected void onSubmitButtonClick() throws SQLException {
         boolean test = true;
 
-       /* if(Database.addCustomer()) {
-
-        }
-        */
-        if(test) {
-            HelloApplication.setLoginScene();
-        }
-        else {
-            errorMessage.setText("Error Registering User");
-            errorMessage.setVisible(true);
-        }
+       if(!Database.usernameExists(username.getText())) {
+           if(password.getText().length() >= 6) {
+               if(confirmPassword.getText().equals(password.getText())) {
+                   ResultSet results = Database.addCustomer(firstName.getText(), lastName.getText(), Date.valueOf(dob.getValue()), username.getText(), password.getText());
+                   if(results != null) {
+                       HelloApplication.customerID = results.getInt(1);
+                       HelloApplication.firstName = firstName.getText();
+                       HelloApplication.lastName = lastName.getText();
+                       HelloApplication.setLoginScene();
+                   }
+                   else {
+                       errorMessage.setText("Error creating login");
+                       errorMessage.setVisible(true);
+                   }
+               }
+               else {
+                   errorMessage.setText("Passwords do not match");
+                   errorMessage.setVisible(true);
+               }
+           }
+           else {
+               errorMessage.setText("Invalid Password");
+               errorMessage.setVisible(true);
+           }
+       }
+       else {
+           errorMessage.setText("Username already exists");
+           errorMessage.setVisible(true);
+       }
     }
 
     @FXML

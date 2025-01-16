@@ -7,7 +7,7 @@ import java.util.List;
 public class CourseContent {
 
     private static String name;
-    private static String desscription;
+    private static String description;
 
     private static ArrayList<String> coursePages = new ArrayList<>();
     private static short maxPages;
@@ -41,8 +41,8 @@ public class CourseContent {
         return name;
     }
 
-    public String getDesscription() {
-        return desscription;
+    public String getDescription() {
+        return description;
     }
 
     public ArrayList<String> getCoursePages() {
@@ -66,7 +66,7 @@ public class CourseContent {
         // ideally we would need the database here to get the course details.
         // whatever it returns
         this.name = courseDetailName;
-        this.desscription = "description";
+        this.description = "description";
 
         // split-stream the string that is made,
         // using addAll or a loop to add all the content that would be shown

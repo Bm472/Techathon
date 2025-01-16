@@ -80,12 +80,13 @@ public class CourseContent {
 
     // here will alter the page number depending on what button is pressed, either forwards or backwards (relies on the boolean.
     public void TurnPage(boolean isForward) {
+        System.out.println("changing page");
         if(isForward && currentPage < maxPages-1){
             currentPage++;
         }else if(!isForward){
             if(currentPage != 0) currentPage--;
         }
-
+        CalculatePercentage();
     }
 
     // this variable will calculate the percentage

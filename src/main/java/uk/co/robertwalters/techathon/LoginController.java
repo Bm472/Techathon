@@ -35,8 +35,7 @@ public class LoginController {
             errorMessage.setVisible(true);
         }
         else if(Database.verifyLogin(username.getText(), password.getText())) {
-            errorMessage.setText("Logged In");
-            errorMessage.setVisible(true);
+            HelloApplication.setHomeScene();
         }
         else {
             errorMessage.setText("Invalid Username or Password");

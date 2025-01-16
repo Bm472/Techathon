@@ -109,6 +109,26 @@ public class Database {
     }
 
     /*
+      Retrieve Course Details
+   */
+    public static ResultSet viewCourses()  {
+        try {
+            initialise();
+            //Create statement
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM Course");
+
+            //Execute query
+            ResultSet resultSet = statement.executeQuery();
+
+            //If successful, return true
+            return resultSet;
+        }
+        catch (SQLException e) {
+            return null;
+        }
+    }
+
+    /*
       View a customers details
    */
     public static ResultSet viewCustomer(int customerID)  {

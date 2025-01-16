@@ -50,6 +50,18 @@ public class HelloApplication extends Application {
         }
     }
 
+    public static void setHomeScene()  {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), stage.getScene().getWidth(), stage.getScene().getHeight());
+            stage.setScene(scene);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     // Updates the text area within the space
     public static void updatePage(boolean isForward) {
 

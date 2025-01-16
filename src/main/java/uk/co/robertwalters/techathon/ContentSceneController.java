@@ -24,12 +24,12 @@ public class ContentSceneController extends HelloApplication{
 
     @FXML
     public void onForwardButtonClick() {
-        updatePage(true);  // true is a sign to go forward
+        //updatePage(true);  // true is a sign to go forward
     }
 
 
     @FXML
     public void onPreviousButtonClick() {
-        updatePage(false);  // true is a sign to go forward
+        //updatePage(false);  // true is a sign to go forward
     }
 }

@@ -1,7 +1,5 @@
 module uk.co.robertwalters.techathon {
-    requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.web;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -9,6 +7,7 @@ module uk.co.robertwalters.techathon {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires eu.hansolo.tilesfx;
 
     opens uk.co.robertwalters.techathon to javafx.fxml;
     exports uk.co.robertwalters.techathon;

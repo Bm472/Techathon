@@ -12,8 +12,8 @@ public class CourseContent {
     private static ArrayList<String> coursePages = new ArrayList<>();
     private static short maxPages;
     private static short currentPage;
-    private static float percentage;
-    private static float userPercentage;
+    private static int percentage;
+    private static int userPercentage;
 
 
     /* example "paragraphs".
@@ -74,7 +74,7 @@ public class CourseContent {
         coursePages.addAll(List.of(cont1.split("/~")));  // regex used within the expression
         this.maxPages = (short)coursePages.size();  // max size of the array list, which indicates the page numbers
         this.currentPage = (short)0;
-        this.percentage = CalculatePercentage();
+        this.percentage = (int) CalculatePercentage();
     }
 
 
@@ -99,8 +99,11 @@ public class CourseContent {
         System.out.println(currentPage + 1);
         System.out.println(maxPages);
 
-        percentage = ((float)currentPage + 1.0f) / (float)maxPages * 100;
-        percentage = Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
+        /*
+        NOTE: For now, the value is being cast to an integer only; just to make things easier within the database.
+         */
+        percentage = (int) (((float)currentPage + 1.0f) / (float)maxPages * 100);
+        percentage = (int) Float.parseFloat(decimalFormat.format(percentage));    // formatting the decimal so it goes to 2dp
 
         if(userPercentage <= percentage) userPercentage = percentage;    // updates the user percentage that will be the one that is displayed to the screen
 

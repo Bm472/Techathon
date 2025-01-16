@@ -56,11 +56,11 @@
                <font>
                   <Font name="System Bold" size="40.0" />
                </font></Label>
-            <TextArea fx:id="contentArea" editable="false" prefHeight="200.0" prefWidth="200.0">
+            <TextArea fx:id="contentArea" editable="false" prefHeight="600.0" prefWidth="200.0">
                <font>
                   <Font size="24.0" />
                </font></TextArea>
-            <HBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <HBox spacing="10.0" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
 
                    <Button mnemonicParsing="false" onAction="#onPreviousButtonClick" text="Previous page">
@@ -73,9 +73,11 @@
                        <font>
                            <Font size="23.0" />
                        </font>
+                       <!--
                    </Button>
 
                   <Button mnemonicParsing="false" text="Ready">
+                  -->
                      <font>
                         <Font size="23.0" />
                      </font>

@@ -9,10 +9,7 @@
 
 <?import eu.hansolo.tilesfx.Tile?>
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.robertwalters.techathon.HomeController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-    <HBox prefHeight="44.0" style="-fx-background-color: #9bb3c6;">
+    <HBox style="-fx-background-color: #9bb3c6;">
         <!-- padding for the inner elements on the overall navbar itself to the right-->
         <padding>
             <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -53,6 +50,4 @@
         <Tile fx:id="Savings" skinType="PERCENTAGE" onMouseClicked="#onSavingsTileClicked"></Tile>
         <Tile fx:id="Investments" skinType="PERCENTAGE" onMouseClicked="#onInvestmentsTileClicked" ></Tile>
     </HBox>
-    <Button fx:id="test" onAction="#onTestClick">
-    </Button>
 </VBox>

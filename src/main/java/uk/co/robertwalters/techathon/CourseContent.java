@@ -73,6 +73,7 @@ public class CourseContent {
 
         // split-stream the string that is made,
         // using addAll or a loop to add all the content that would be shown
+        coursePages = new ArrayList<>();
         coursePages.addAll(List.of(cont1.split("/~")));  // regex used within the expression
         this.maxPages = (short)coursePages.size();  // max size of the array list, which indicates the page numbers
         this.currentPage = (short)0;

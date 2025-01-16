@@ -3,6 +3,7 @@ package uk.co.robertwalters.techathon;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +16,11 @@ public class HelloApplication extends Application {
     public static String lastName;
     private static final int WINDOW_WIDTH = 960;
     private static final int WINDOW_HEIGHT = 540;
+
+    // this makes it accessible within the controller so event triggers can be done.
+    private static CourseContent courseContent;
+    private static ContentSceneController contentSceneController;  // updating the scene content
+
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
@@ -42,6 +48,27 @@ public class HelloApplication extends Application {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // Updates the text area within the space
+    public static void updatePage(boolean isForward) {
+
+        courseContent.TurnPage(isForward);
+        System.out.println("max page is: " +courseContent.getMaxPages());
+        System.out.println("current page is.. "+courseContent.getCurrentPage());
+
+        TextArea paragraph = new TextArea(courseContent.getCoursePages().get(courseContent.getCurrentPage()));
+        paragraph.setStyle("-fx-font-size: 24");
+
+        // sets the text to the paragraph and makes sure it can be resized depending on the screen sizing.
+        contentSceneController.contentArea.setText(paragraph.getText());
+        contentSceneController.contentArea.setWrapText(true);
+        // the percentage is set and displayed to the screen
+        contentSceneController.percentLabel.setText(courseContent.getPercentage() + "%");
+
+        // percentage is taken from the class and divided by 100 as the values within the progress bar works from 0 to 1.
+        contentSceneController.progressBar.setProgress(courseContent.getPercentage()/100.00);
+
     }
 
 

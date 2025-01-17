@@ -63,13 +63,13 @@
             <HBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                <children>
 
-                   <Button mnemonicParsing="false" onAction="#onPreviousButtonClick" text="Previous page">
+                   <Button mnemonicParsing="false" onAction="#onPreviousButtonClick" style="-fx-background-color: #423e3e;" text="Previous page" textFill="WHITE">
                        <font>
                            <Font size="23.0" />
                        </font>
                    </Button>
 
-                   <Button fx:id="nextPage" mnemonicParsing="false" onAction="#onForwardButtonClick" text="Next page">
+                   <Button fx:id="nextPage" mnemonicParsing="false" onAction="#onForwardButtonClick" style="-fx-background-color: #423e3e" text="Next page" textFill="WHITE">
                        <font>
                            <Font size="23.0" />
                        </font>

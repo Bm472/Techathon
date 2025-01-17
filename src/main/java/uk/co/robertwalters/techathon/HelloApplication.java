@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
     public static String firstName;
     public static String lastName;
     public static int currentCourseID;
-    private static final int WINDOW_WIDTH = 1000;
+    private static final int WINDOW_WIDTH = 1500;
     private static final int WINDOW_HEIGHT = 800;
 
     // this makes it accessible within the controller so event triggers can be done.

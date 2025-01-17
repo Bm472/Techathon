@@ -11,7 +11,7 @@
     <HBox style="-fx-background-color: #fb8840;">
         <!-- padding for the inner elements on the overall navbar itself to the right-->
         <padding>
-            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
 
         <!-- Left side of the bar (username image and search) -->
@@ -38,15 +38,15 @@
             </HBox>
         </HBox>
     </HBox>
-    <Label text="Home">
+    <Label text="Home" textFill="#f07f09">
         <font>
-            <Font size="72.0" />
+            <Font name="Roboto Light" size="72.0" />
         </font>
     </Label>
     <HBox alignment="CENTER" spacing="10.0">
-        <Tile fx:id="Mortgages" onMouseClicked="#onMortgagesTileClicked" skinType="PERCENTAGE" />
-        <Tile fx:id="Pensions" onMouseClicked="#onPensionsTileClicked" skinType="PERCENTAGE" />
-        <Tile fx:id="Savings" onMouseClicked="#onSavingsTileClicked" skinType="PERCENTAGE" />
-        <Tile fx:id="Investments" onMouseClicked="#onInvestmentsTileClicked" skinType="PERCENTAGE" />
+        <Tile fx:id="Mortgages" onMouseClicked="#onMortgagesTileClicked" skinType="PERCENTAGE"/>
+        <Tile fx:id="Pensions" onMouseClicked="#onPensionsTileClicked" skinType="PERCENTAGE"/>
+        <Tile fx:id="Savings" onMouseClicked="#onSavingsTileClicked" skinType="PERCENTAGE"/>
+        <Tile fx:id="Investments" onMouseClicked="#onInvestmentsTileClicked" skinType="PERCENTAGE"/>
     </HBox>
 </VBox>

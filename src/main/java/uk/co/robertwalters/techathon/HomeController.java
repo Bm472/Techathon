@@ -13,6 +13,8 @@ import data.Database;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+
 /*import javafx.scene.layout.*/
 
 public class HomeController {
@@ -53,26 +55,34 @@ public class HomeController {
                         case "Mortgages":
                             Mortgages.setTitle(resultSet.getString("name"));
                             Mortgages.setDescription(resultSet.getString("description"));
-                            Mortgages.setUnit(Helper.PERCENTAGE);
                             Mortgages.setValue(resultSet.getDouble("value"));
+                            Mortgages.setValueColor(Color.web("#f07f09"));
+                            Mortgages.setBarColor(Color.web("#f07f09"));
+                            Mortgages.setValueVisible(false);
                             break;
                         case "Pensions":
                             Pensions.setTitle(resultSet.getString("name"));
                             Pensions.setDescription(resultSet.getString("description"));
-                            Pensions.setUnit(Helper.PERCENTAGE);
                             Pensions.setValue(resultSet.getDouble("value"));
+                            Pensions.setValueColor(Color.web("#f07f09"));
+                            Pensions.setBarColor(Color.web("#f07f09"));
+                            Pensions.setValueVisible(false);
                             break;
                         case "Savings":
                             Savings.setTitle(resultSet.getString("name"));
                             Savings.setDescription(resultSet.getString("description"));
-                            Savings.setUnit(Helper.PERCENTAGE);
                             Savings.setValue(resultSet.getDouble("value"));
+                            Savings.setValueColor(Color.web("#f07f09"));
+                            Savings.setBarColor(Color.web("#f07f09"));
+                            Savings.setValueVisible(false);
                             break;
                         case "Investments":
                             Investments.setTitle(resultSet.getString("name"));
                             Investments.setDescription(resultSet.getString("description"));
-                            Investments.setUnit(Helper.PERCENTAGE);
                             Investments.setValue(resultSet.getDouble("value"));
+                            Investments.setValueColor(Color.web("#f07f09"));
+                            Investments.setBarColor(Color.web("#f07f09"));
+                            Investments.setValueVisible(false);
                             break;
                     }
                 }
